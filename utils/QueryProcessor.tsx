@@ -9,6 +9,24 @@ export default function QueryProcessor(query: string): string {
     return ("My andrew ID is cmaas.");
   } else if (query.toLowerCase().includes("name")) {
     return ("Connor Maas");
+  } else if (query.toLowerCase().includes("largest")) {
+    const matches = query.match(/\d+/g);
+    if (matches) {
+        const numbers = matches.map(Number);
+        if (numbers && numbers.length) {
+            const largest = Math.max(...numbers);
+            return (`${largest}`);
+        }
+    }
+  } else if (query.toLowerCase().includes("plus")) {
+    const matches = query.match(/\d+/g);
+    if (matches) {
+        const numbers = matches.map(Number);
+        if (numbers && numbers.length) {
+            const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+            return (`${sum}`);
+        }
+    }
   }
   return "";
 }

@@ -34,4 +34,18 @@ describe("QueryProcessor", () => {
             "Connor Maas"
         )); 
     })
+    test('should return largest', () =>  {
+        const query = "Which of the following numbers is the largest: 99, 48, 32?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "99"
+        )); 
+    })
+    test('should return sum', () =>  {
+        const query = "What is 60 plus 7?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "67"
+        )); 
+    })
 });
