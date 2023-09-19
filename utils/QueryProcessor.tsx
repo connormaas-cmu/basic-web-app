@@ -27,6 +27,15 @@ export default function QueryProcessor(query: string): string {
             return (`${sum}`);
         }
     }
+  } else if (query.toLowerCase().includes("multiplied")) {
+    const matches = query.match(/\d+/g);
+    if (matches) {
+        const numbers = matches.map(Number);
+        if (numbers && numbers.length) {
+            const sum = numbers.reduce((accumulator, currentValue) => accumulator * currentValue, 1);
+            return (`${sum}`);
+        }
+    }
   }
   return "";
 }

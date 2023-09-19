@@ -48,4 +48,11 @@ describe("QueryProcessor", () => {
             "67"
         )); 
     })
+    test('should return product', () =>  {
+        const query = "What is 97 multiplied by 89?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "8633"
+        )); 
+    })
 });
