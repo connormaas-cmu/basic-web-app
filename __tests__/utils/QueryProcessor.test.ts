@@ -62,5 +62,12 @@ describe("QueryProcessor", () => {
             "9"
         )); 
     })
+    test('should return square and cube number', () =>  {
+        const query = "Which of the following numbers is both a square and a cube: 4096, 3721, 4343, 94, 2531, 64, 132?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "4096"
+        )); 
+    })
 
 });

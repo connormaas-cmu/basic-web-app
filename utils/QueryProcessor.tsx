@@ -43,6 +43,18 @@ export default function QueryProcessor(query: string): string {
         const difference = numbers.reduce((accumulator, currentValue) => accumulator - currentValue);
         return (`${difference}`);
     }
+  } else if (query.toLowerCase().includes("both a square and")) {
+    const isSquareAndCube = (n : number) => {
+      const sqrtValue = Math.sqrt(n);
+      const cbrtValue = Math.cbrt(n);
+      return Number.isInteger(sqrtValue) && Number.isInteger(cbrtValue);
+    }
+    const matches = query.match(/\d+/g);
+    if (matches) {
+        const numbers = matches.map(Number);
+        const resultNumbers = numbers.filter(isSquareAndCube);
+        return (`${resultNumbers[0]}`);
+    }
   }
   return "";
 }
