@@ -36,6 +36,13 @@ export default function QueryProcessor(query: string): string {
             return (`${sum}`);
         }
     }
+  } else if (query.toLowerCase().includes("minus")) {
+    const matches = query.match(/\d+/g);
+    if (matches && matches.length === 2) {
+        const numbers = matches.map(Number);
+        const difference = numbers.reduce((accumulator, currentValue) => accumulator - currentValue);
+        return (`${difference}`);
+    }
   }
   return "";
 }

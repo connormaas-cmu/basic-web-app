@@ -55,4 +55,12 @@ describe("QueryProcessor", () => {
             "8633"
         )); 
     })
+    test('should return difference', () =>  {
+        const query = "What is 43 minus 34?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "9"
+        )); 
+    })
+
 });
